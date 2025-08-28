@@ -778,6 +778,503 @@
         let controlBoards = [
             // Front Load Control Boards
             {
+                partNumber: 'W10619845',
+                compatibleModels: 'WFW8300SW01, WFW8500DC0, WFW8540FW0, WFW8300SW02',
+                washerType: 'front_load',
+                symptoms: 'Excessive suds error Sud/F2-E5, Won\'t rinse properly, Soap dispenser issues',
+                stockQty: 4,
+                price: 182.75
+            },
+            {
+                partNumber: 'W10480190',
+                compatibleModels: 'WFW94HEXW2, WFW95HEXW2, WFW96HEAW0, WFW97HEXW2',
+                washerType: 'front_load',
+                symptoms: 'Spin speed issues, Won\'t reach final spin, Clothes too wet',
+                stockQty: 3,
+                price: 203.99
+            },
+            {
+                partNumber: 'W11032443',
+                compatibleModels: 'WFW5605MW0, WFW6605MW0, WFW7605MW0, WFW8605MW0',
+                washerType: 'front_load',
+                symptoms: 'Load & Go dispenser not working, Detergent not dispensing, Error LC',
+                stockQty: 8,
+                price: 278.50
+            },
+            {
+                partNumber: 'W10435302',
+                compatibleModels: 'WFW9200SQ01, WFW9400SU01, WFW9500TC01, WFW9600TA01',
+                washerType: 'front_load',
+                symptoms: 'Fabric softener not dispensing, Rinse cycle issues, Error F1-E2',
+                stockQty: 5,
+                price: 156.99
+            },
+            {
+                partNumber: 'W10754475',
+                compatibleModels: 'WFW3090JW0, WFW5090GW0, WFW5620HW0, WFW6620HW0, WFW7620HW0',
+                washerType: 'front_load',
+                symptoms: 'Motor control issues, Won\'t spin, Loud grinding noise, Error F7-E3',
+                stockQty: 1,
+                price: 289.99
+            },
+
+            // Top Load HE Control Boards  
+            {
+                partNumber: 'W10084142',
+                compatibleModels: 'WTW75HEFW0, WTW70HEBW0, WTW80HEFW0, WTW85HEFW0',
+                washerType: 'top_load_he',
+                symptoms: 'Stops mid-cycle, Won\'t drain or spin, Error F7-E1, Lid lock issues',
+                stockQty: 5,
+                price: 165.50
+            },
+            {
+                partNumber: 'W11035747',
+                compatibleModels: 'WTW5000DW1, WTW5105HC0, WTW5205SS1, WTW5300DW0',
+                washerType: 'top_load_he',
+                symptoms: 'Excessive vibration, Won\'t balance load, Error F5, Spin basket loose',
+                stockQty: 6,
+                price: 158.50
+            },
+            {
+                partNumber: 'W10525374',
+                compatibleModels: 'WTW8500DC0, WTW8700EC0, WTW8800YC0, WTW8900BC0',
+                washerType: 'top_load_he',
+                symptoms: 'Load sensing issues, Won\'t detect clothes, Error UL, Unbalanced loads',
+                stockQty: 9,
+                price: 172.25
+            },
+            {
+                partNumber: 'W10389204',
+                compatibleModels: 'WTW6600SW0, WTW6700SW0, WTW6800SW0, WTW6900SW0',
+                washerType: 'top_load_he',
+                symptoms: 'Won\'t fill to correct level, Water level sensor issues, Error F8-E1',
+                stockQty: 7,
+                price: 149.75
+            },
+            {
+                partNumber: 'W10512946',
+                compatibleModels: 'WTW7000DW0, WTW7040DW0, WTW7120HW0, WTW7300DW0',
+                washerType: 'top_load_he',
+                symptoms: 'Lid lock won\'t engage, Error F5-E2, Safety concerns, Won\'t start',
+                stockQty: 4,
+                price: 134.50
+            },
+            {
+                partNumber: 'W10634953',
+                compatibleModels: 'WTW5800SW0, WTW5900SW0, WTW6000SW0, WTW6100SW0',
+                washerType: 'top_load_he',
+                symptoms: 'Wash basket won\'t agitate, No motion during wash, Motor issues',
+                stockQty: 2,
+                price: 187.99
+            },
+            {
+                partNumber: 'W11100292',
+                compatibleModels: 'WTW4855HW1, WTW5105HC0, WTW5205SS1, WTW5305SW0',
+                washerType: 'top_load_he',
+                symptoms: 'Control knob not responding, Cycle selection issues, Display problems',
+                stockQty: 8,
+                price: 142.75
+            },
+            {
+                partNumber: 'W10812422',
+                compatibleModels: 'WTW7500GC0, WTW7600XL0, WTW7700XL0, WTW7800XL0',
+                washerType: 'top_load_he',
+                symptoms: 'Automatic dispenser not working, Bleach/softener issues, Error F1-E3',
+                stockQty: 3,
+                price: 168.25
+            },
+            {
+                partNumber: 'W10911679',
+                compatibleModels: 'WTW8127LW0, WTW8507AW0, WTW8700EC0, WTW8800YC0',
+                washerType: 'top_load_he',
+                symptoms: 'Smart diagnostics not working, WiFi connection problems, App errors',
+                stockQty: 6,
+                price: 225.50
+            },
+            {
+                partNumber: 'W11384469',
+                compatibleModels: 'WTW5057LW0, WTW5105HC0, WTW5305SW0, WTW5505MW0',
+                washerType: 'top_load_he',
+                symptoms: 'Deep water wash not working, Water level too low, Cycle customization issues',
+                stockQty: 10,
+                price: 159.99
+            },
+
+            // Traditional Top Load Control Boards
+            {
+                partNumber: 'W10480317',
+                compatibleModels: 'WTW4816FW2, WTW4850HW1, WTW4950HW0, WTW5550XW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'No agitation, Won\'t advance cycles, Timer doesn\'t work, Continuous fill',
+                stockQty: 2,
+                price: 145.25
+            },
+            {
+                partNumber: 'W10641564',
+                compatibleModels: 'WTW7300DW1, WTW7500GC0, WTW7800XL0, WTW8000DW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Water level issues, Won\'t fill properly, Pressure switch problems, Timer stuck',
+                stockQty: 1,
+                price: 134.75
+            },
+            {
+                partNumber: 'W10739322',
+                compatibleModels: 'WTW4755HW0, WTW4855HW1, WTW4955HW2, WTW5055DW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Agitator won\'t move, Transmission problems, Clutch issues, No spin cycle',
+                stockQty: 3,
+                price: 128.99
+            },
+            {
+                partNumber: 'W10112124',
+                compatibleModels: 'WTW4700YQ0, WTW4800XQ0, WTW4900XQ0, WTW5000DW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Timer motor burned out, Stuck on one cycle, Won\'t advance automatically',
+                stockQty: 4,
+                price: 98.50
+            },
+            {
+                partNumber: 'W10285625',
+                compatibleModels: 'WTW4616FW2, WTW4916FW2, WTW5016SW0, WTW5316DW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Water temperature issues, Hot/cold reversed, Temperature switch problems',
+                stockQty: 5,
+                price: 87.75
+            },
+            {
+                partNumber: 'W10394428',
+                compatibleModels: 'WTW4800BQ0, WTW4850BW0, WTW4900BQ0, WTW4950BW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Spin speed control problems, Only one speed works, Belt slipping',
+                stockQty: 2,
+                price: 112.99
+            },
+            {
+                partNumber: 'W10131615',
+                compatibleModels: 'WTW5700SW0, WTW5800SW0, WTW5900SW0, WTW6000SW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Water won\'t shut off, Overfill issues, Water valve control problems',
+                stockQty: 6,
+                price: 103.50
+            },
+            {
+                partNumber: 'W10447783',
+                compatibleModels: 'WTW4600YQ0, WTW4700YQ0, WTW4750YQ0, WTW4800BQ0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Drain pump not working, Won\'t pump out water, Drain cycle issues',
+                stockQty: 3,
+                price: 95.75
+            },
+            {
+                partNumber: 'W10512945',
+                compatibleModels: 'WTW5550XW0, WTW5570XW0, WTW5600XW0, WTW5620HW0',
+                washerType: 'top_load_traditional',
+                symptoms: 'Basket drive issues, Won\'t spin clothes dry, Transmission failure',
+                stockQty: 1,
+                price: 156.25
+            },
+
+            // Specialty and Commercial Grade Control Boards
+            {
+                partNumber: 'W11307244',
+                compatibleModels: 'WFW862CHW0, WFW862CHZ0, WFW862CHB0, WFW8620HW0',
+                washerType: 'front_load',
+                symptoms: 'Commercial grade features not working, Heavy duty cycle issues, Extended warranty problems',
+                stockQty: 2,
+                price: 325.99
+            },
+            {
+                partNumber: 'W11035949',
+                compatibleModels: 'WTW8127LW0, WTW8507AW0, WTW8627LW0, WTW8707AW0',
+                washerType: 'top_load_he',
+                symptoms: 'Color display not working, Touch screen unresponsive, Advanced cycle problems',
+                stockQty: 4,
+                price: 295.50
+            },
+            {
+                partNumber: 'W11043368',
+                compatibleModels: 'WFW9620HBK0, WFW9620HBZ0, WFW9620HBW0, WFW9820HBK0',
+                washerType: 'front_load',
+                symptoms: 'Precision dispense not working, Multiple detergent issues, Premium cycle failures',
+                stockQty: 1,
+                price: 389.75
+            },
+            {
+                partNumber: 'W11384470',
+                compatibleModels: 'WTW7120HW0, WTW7300DW0, WTW7500GC0, WTW7600XL0',
+                washerType: 'top_load_he',
+                symptoms: 'Adaptive wash technology not working, Load size detection failure, Efficiency problems',
+                stockQty: 3,
+                price: 267.25
+            },
+            {
+                partNumber: 'W11228230',
+                compatibleModels: 'WFW5605MW0, WFW6605MW0, WFW7605MW0, WFW8605MW0, WFW9605MW0',
+                washerType: 'front_load',
+                symptoms: 'Load & Go XL dispenser failure, Bulk detergent system issues, 40-load capacity problems',
+                stockQty: 5,
+                price: 312.99
+            }
+        ];
+
+        function getStatus(qty) {
+            if (qty === 0) return 'out-of-stock';
+            if (qty <= 2) return 'low-stock';
+            return 'in-stock';
+        }
+
+        function getStatusText(status) {
+            switch(status) {
+                case 'in-stock': return 'In Stock';
+                case 'low-stock': return 'Low Stock';
+                case 'out-of-stock': return 'Out of Stock';
+                default: return 'Unknown';
+            }
+        }
+
+        function updateStats() {
+            const total = controlBoards.length;
+            const inStock = controlBoards.filter(b => getStatus(b.stockQty) === 'in-stock').length;
+            const lowStock = controlBoards.filter(b => getStatus(b.stockQty) === 'low-stock').length;
+            const outStock = controlBoards.filter(b => getStatus(b.stockQty) === 'out-of-stock').length;
+
+            document.getElementById('totalBoards').textContent = total;
+            document.getElementById('inStockBoards').textContent = inStock;
+            document.getElementById('lowStockBoards').textContent = lowStock;
+            document.getElementById('outStockBoards').textContent = outStock;
+        }
+
+        function renderTable(boardsToShow = controlBoards) {
+            const tbody = document.getElementById('boardsTableBody');
+            tbody.innerHTML = '';
+
+            boardsToShow.forEach((board, index) => {
+                const status = getStatus(board.stockQty);
+                const row = document.createElement('tr');
+                if (board.recommended) {
+                    row.classList.add('recommended');
+                }
+                
+                row.innerHTML = `
+                    <td class="part-number">${board.partNumber}</td>
+                    <td class="model-list">${board.compatibleModels}</td>
+                    <td>${board.washerType.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}</td>
+                    <td class="symptoms">${board.symptoms}</td>
+                    <td>${board.stockQty}</td>
+                    <td>${board.price.toFixed(2)}</td>
+                    <td><span class="status ${status}">${getStatusText(status)}</span></td>
+                    <td class="actions">
+                        <button class="btn-small btn-edit" onclick="editBoard(${index})">Edit</button>
+                        <button class="btn-small btn-delete" onclick="deleteBoard(${index})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function diagnoseIssue() {
+            const formData = new FormData(document.getElementById('diagnosticForm'));
+            const symptom = formData.get('symptom');
+            const panelResponse = formData.get('panel_response');
+            const displayIssue = formData.get('display_issue');
+            const waterFill = formData.get('water_fill');
+            const washerType = formData.get('washer_type');
+
+            // Clear previous recommendations
+            controlBoards.forEach(board => board.recommended = false);
+
+            let recommendedBoard = null;
+            let diagnosisText = '';
+
+            // Diagnosis logic based on symptoms and responses
+            if (symptom === 'no_power' && panelResponse === 'no_response') {
+                if (washerType === 'front_load') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10310240');
+                    diagnosisText = 'Complete power failure indicates main control board failure. Common in front-load washers.';
+                } else if (washerType === 'top_load_he') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
+                    diagnosisText = 'No power with unresponsive panel suggests main control board replacement needed.';
+                } else {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10480317');
+                    diagnosisText = 'Traditional top-load with no power typically requires timer/control board replacement.';
+                }
+            }
+            else if (symptom === 'no_start' && panelResponse === 'full_response') {
+                if (washerType === 'front_load' && displayIssue === 'error_display') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10393156');
+                    diagnosisText = 'Control panel responsive but won\'t start with error codes indicates door lock control issues.';
+                } else if (washerType === 'top_load_he') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035747');
+                    diagnosisText = 'HE top-load that won\'t start often has load sensing or balance control problems.';
+                }
+            }
+            else if (symptom === 'stops_mid_cycle') {
+                if (washerType === 'front_load' && waterFill === 'normal_fill') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10438751');
+                    diagnosisText = 'Mid-cycle stops in front-load washers often indicate drainage control issues.';
+                } else if (washerType === 'top_load_he') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
+                    diagnosisText = 'HE washers stopping mid-cycle typically have main control board communication problems.';
+                }
+            }
+            else if (symptom === 'no_drain_spin') {
+                if (washerType === 'front_load') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10438751');
+                    diagnosisText = 'Drainage and spin issues in front-load washers are often control board related.';
+                } else if (washerType === 'top_load_traditional') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10739322');
+                    diagnosisText = 'Traditional washers with no spin often have timer or agitation control problems.';
+                }
+            }
+            else if (symptom === 'error_codes') {
+                if (washerType === 'front_load') {
+                    if (displayIssue === 'error_display') {
+                        recommendedBoard = controlBoards.find(b => b.partNumber === 'W10906394');
+                        diagnosisText = 'Persistent error codes in front-load washers indicate temperature or heating control issues.';
+                    }
+                } else if (washerType === 'top_load_he') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10525374');
+                    diagnosisText = 'Error codes in HE top-load washers often relate to load sensing problems.';
+                }
+            }
+            else if (symptom === 'lights_flashing') {
+                if (washerType === 'front_load') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10393156');
+                    diagnosisText = 'Flashing control lights typically indicate communication errors between control board and other components.';
+                }
+            }
+
+            // Fallback recommendations based on washer type
+            if (!recommendedBoard) {
+                if (washerType === 'front_load') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10310240');
+                    diagnosisText = 'Based on symptoms, this is the most common control board for your washer type.';
+                } else if (washerType === 'top_load_he') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
+                    diagnosisText = 'This control board addresses most common issues in HE top-load washers.';
+                } else {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10480317');
+                    diagnosisText = 'Most suitable control board for traditional top-load washer symptoms.';
+                }
+            }
+
+            if (recommendedBoard) {
+                recommendedBoard.recommended = true;
+                const resultDiv = document.getElementById('diagnosisResult');
+                const boardInfo = document.getElementById('recommendedBoard');
+                
+                boardInfo.innerHTML = `
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4>🎯 ${recommendedBoard.partNumber}</h4>
+                        <p><strong>Compatible Models:</strong> ${recommendedBoard.compatibleModels}</p>
+                        <p><strong>Price:</strong> ${recommendedBoard.price.toFixed(2)}</p>
+                        <p><strong>Stock:</strong> ${recommendedBoard.stockQty > 0 ? `${recommendedBoard.stockQty} available` : 'Out of stock'}</p>
+                        <p><strong>Diagnosis:</strong> ${diagnosisText}</p>
+                    </div>
+                `;
+                
+                resultDiv.classList.add('show');
+                renderTable(); // Re-render to show recommendation highlighting
+            }
+        }
+
+        function openModal() {
+            document.getElementById('boardModal').style.display = 'block';
+            document.getElementById('boardForm').reset();
+            document.querySelector('#boardModal h2').textContent = 'Add New Control Board';
+        }
+
+        function closeModal() {
+            document.getElementById('boardModal').style.display = 'none';
+            const form = document.getElementById('boardForm');
+            delete form.dataset.editIndex;
+        }
+
+        function editBoard(index) {
+            const board = controlBoards[index];
+            document.getElementById('partNumber').value = board.partNumber;
+            document.getElementById('compatibleModels').value = board.compatibleModels;
+            document.getElementById('washerType').value = board.washerType;
+            document.getElementById('symptoms').value = board.symptoms;
+            document.getElementById('stockQty').value = board.stockQty;
+            document.getElementById('price').value = board.price;
+            
+            document.querySelector('#boardModal h2').textContent = 'Edit Control Board';
+            document.getElementById('boardModal').style.display = 'block';
+            document.getElementById('boardForm').dataset.editIndex = index;
+        }
+
+        function deleteBoard(index) {
+            if (confirm('Are you sure you want to delete this control board?')) {
+                controlBoards.splice(index, 1);
+                renderTable();
+                updateStats();
+            }
+        }
+
+        function filterBoards() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+
+            let filteredBoards = controlBoards.filter(board => {
+                const matchesSearch = board.partNumber.toLowerCase().includes(searchTerm) ||
+                                    board.compatibleModels.toLowerCase().includes(searchTerm) ||
+                                    board.symptoms.toLowerCase().includes(searchTerm);
+                
+                const matchesType = !typeFilter || board.washerType === typeFilter;
+                const matchesStatus = !statusFilter || getStatus(board.stockQty) === statusFilter;
+
+                return matchesSearch && matchesType && matchesStatus;
+            });
+
+            renderTable(filteredBoards);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterBoards);
+        document.getElementById('typeFilter').addEventListener('change', filterBoards);
+        document.getElementById('statusFilter').addEventListener('change', filterBoards);
+
+        document.getElementById('boardForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const newBoard = {
+                partNumber: formData.get('partNumber'),
+                compatibleModels: formData.get('compatibleModels'),
+                washerType: formData.get('washerType'),
+                symptoms: formData.get('symptoms'),
+                stockQty: parseInt(formData.get('stockQty')),
+                price: parseFloat(formData.get('price'))
+            };
+
+            const editIndex = this.dataset.editIndex;
+            if (editIndex !== undefined) {
+                controlBoards[editIndex] = newBoard;
+                delete this.dataset.editIndex;
+            } else {
+                controlBoards.push(newBoard);
+            }
+
+            renderTable();
+            updateStats();
+            closeModal();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('boardModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderTable();
+        updateStats();
+    </script>
+</body>
+</html>
                 partNumber: 'W10310240',
                 compatibleModels: 'WFW75HEFW0, WFW70HEBW0, WFW85HEFW0, WFW90HEFW0, WFW75HEFW1',
                 washerType: 'front_load',
@@ -842,7 +1339,3 @@
                 price: 167.25
             },
             {
-                partNumber: 'W10619845',
-                compatibleModels: 'WFW8300SW01, WFW8500DC0, WFW8540FW0, WFW8300SW02',
-                washerType: 'front_load',
-                symptoms: 'Excessive
