@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<div class="form-group">
+                    <label for="brand">Brand:</label>
+                    <select id="brand" name="brand" required>
+                        <option value="">Select Brand</option>
+                        <option value="Whirlpool">Whirlpool</option>
+                        <option value="GE">GE</option>
+                        <option value="LG">LG</option>
+                        <option value="Samsung">Samsung</option>
+                    </select>
+                </div>                        <select class="filter-select" id="brandFilter">
+                            <option value="">All Brands</option>
+                            <option value="Whirlpool">Whirlpool</option>
+                            <option value="GE">GE</option>
+                            <option value="LG">LG</option>
+                            <option value="Samsung">Samsung</option>
+                        </select><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -808,8 +823,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔧 Whirlpool Washer Control Board Diagnostics</h1>
-            <p>Diagnostic tool and inventory system for washing machine control boards</p>
+            <h1>🔧 Multi-Brand Appliance Control Board Database</h1>
+            <p>Comprehensive diagnostic tool and inventory system for Whirlpool, GE, LG, and Samsung appliance control boards</p>
         </div>
 
         <div class="main-content">
@@ -984,7 +999,7 @@
                     </div>
 
                     <div class="question-group">
-                        <div class="question">5. What type of washer model do you have?</div>
+                        <div class="question">5. What type of appliance do you have?</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="type1" name="washer_type" value="front_load">
@@ -992,11 +1007,55 @@
                             </div>
                             <div class="option">
                                 <input type="radio" id="type2" name="washer_type" value="top_load_he">
-                                <label for="type2">Top-load HE (High Efficiency)</label>
+                                <label for="type2">Top-load HE (High Efficiency) washer</label>
                             </div>
                             <div class="option">
                                 <input type="radio" id="type3" name="washer_type" value="top_load_traditional">
-                                <label for="type3">Top-load Traditional</label>
+                                <label for="type3">Top-load Traditional washer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type4" name="washer_type" value="electric_dryer">
+                                <label for="type4">Electric dryer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type5" name="washer_type" value="gas_dryer">
+                                <label for="type5">Gas dryer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type6" name="washer_type" value="combo_dryer">
+                                <label for="type6">Combo/Stackable dryer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type7" name="washer_type" value="built_in_dishwasher">
+                                <label for="type7">Built-in dishwasher</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type8" name="washer_type" value="portable_dishwasher">
+                                <label for="type8">Portable dishwasher</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type9" name="washer_type" value="drawer_dishwasher">
+                                <label for="type9">Drawer dishwasher</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type10" name="washer_type" value="side_by_side_fridge">
+                                <label for="type10">Side-by-side refrigerator</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type11" name="washer_type" value="french_door_fridge">
+                                <label for="type11">French door refrigerator</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type12" name="washer_type" value="top_freezer_fridge">
+                                <label for="type12">Top freezer refrigerator</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type13" name="washer_type" value="bottom_freezer_fridge">
+                                <label for="type13">Bottom freezer refrigerator</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="type14" name="washer_type" value="compact_fridge">
+                                <label for="type14">Compact refrigerator</label>
                             </div>
                         </div>
                     </div>
@@ -1016,12 +1075,12 @@
             <div class="inventory-panel">
                 <div class="inventory-header">
                     <h2>📦 Control Board Inventory</h2>
-                    <p>Current stock of Whirlpool washer control boards</p>
+                    <p>Current stock of Whirlpool, GE, LG, and Samsung control boards for all major appliances</p>
                 </div>
 
                 <div class="search-controls">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search part numbers or models...">
+                        <input type="text" id="searchInput" placeholder="Search part numbers, models, brands, or appliance types...">
                         <span class="search-icon">🔍</span>
                     </div>
                     <div class="filter-row">
@@ -1043,19 +1102,19 @@
 
                 <div class="stats-row">
                     <div class="stat-item">
-                        <div class="stat-number" id="totalBoards">47</div>
+                        <div class="stat-number" id="totalBoards">267</div>
                         <div class="stat-label">Total Boards</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" id="inStockBoards">38</div>
+                        <div class="stat-number" id="inStockBoards">218</div>
                         <div class="stat-label">In Stock</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" id="lowStockBoards">7</div>
+                        <div class="stat-number" id="lowStockBoards">36</div>
                         <div class="stat-label">Low Stock</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" id="outStockBoards">2</div>
+                        <div class="stat-number" id="outStockBoards">13</div>
                         <div class="stat-label">Out of Stock</div>
                     </div>
                 </div>
@@ -1065,6 +1124,7 @@
                         <thead>
                             <tr>
                                 <th>Part Number</th>
+                                <th>Brand</th>
                                 <th>Compatible Models</th>
                                 <th>Type</th>
                                 <th>Common Symptoms</th>
@@ -1101,9 +1161,20 @@
                     <label for="washerType">Washer Type:</label>
                     <select id="washerType" name="washerType" required>
                         <option value="">Select Type</option>
-                        <option value="front_load">Front Load</option>
-                        <option value="top_load_he">Top Load HE</option>
-                        <option value="top_load_traditional">Top Load Traditional</option>
+                        <option value="front_load">Front Load Washer</option>
+                        <option value="top_load_he">Top Load HE Washer</option>
+                        <option value="top_load_traditional">Top Load Traditional Washer</option>
+                        <option value="electric_dryer">Electric Dryer</option>
+                        <option value="gas_dryer">Gas Dryer</option>
+                        <option value="combo_dryer">Combo/Stackable Dryer</option>
+                        <option value="built_in_dishwasher">Built-In Dishwasher</option>
+                        <option value="portable_dishwasher">Portable Dishwasher</option>
+                        <option value="drawer_dishwasher">Drawer Dishwasher</option>
+                        <option value="side_by_side_fridge">Side-by-Side Refrigerator</option>
+                        <option value="french_door_fridge">French Door Refrigerator</option>
+                        <option value="top_freezer_fridge">Top Freezer Refrigerator</option>
+                        <option value="bottom_freezer_fridge">Bottom Freezer Refrigerator</option>
+                        <option value="compact_fridge">Compact Refrigerator</option>
                     </select>
                 </div>
                 
@@ -1132,6 +1203,7 @@
 
     <script>
         let controlBoards = [
+            // ========== WHIRLPOOL CONTROL BOARDS ==========
             // Front Load Control Boards
             {
                 partNumber: 'W10619845',
@@ -1442,7 +1514,7 @@
             let recommendedBoard = null;
             let diagnosisText = '';
 
-            // Diagnosis logic based on symptoms and responses
+            // Enhanced diagnosis logic for both washers and dryers
             if (symptom === 'no_power' && panelResponse === 'no_response') {
                 if (washerType === 'front_load') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10310240');
@@ -1450,9 +1522,15 @@
                 } else if (washerType === 'top_load_he') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
                     diagnosisText = 'No power with unresponsive panel suggests main control board replacement needed.';
-                } else {
+                } else if (washerType === 'top_load_traditional') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10480317');
                     diagnosisText = 'Traditional top-load with no power typically requires timer/control board replacement.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035278');
+                    diagnosisText = 'Electric dryer with no power usually indicates main control board failure.';
+                } else if (washerType === 'gas_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035289');
+                    diagnosisText = 'Gas dryer control board failure affecting ignition and safety systems.';
                 }
             }
             else if (symptom === 'no_start' && panelResponse === 'full_response') {
@@ -1462,6 +1540,12 @@
                 } else if (washerType === 'top_load_he') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035747');
                     diagnosisText = 'HE top-load that won\'t start often has load sensing or balance control problems.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10349265');
+                    diagnosisText = 'Electric dryer won\'t start typically indicates door latch or safety interlock issues.';
+                } else if (washerType === 'gas_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10349272');
+                    diagnosisText = 'Gas dryer start issues often relate to safety valve or ignition sequence problems.';
                 }
             }
             else if (symptom === 'stops_mid_cycle') {
@@ -1471,6 +1555,12 @@
                 } else if (washerType === 'top_load_he') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
                     diagnosisText = 'HE washers stopping mid-cycle typically have main control board communication problems.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10285995');
+                    diagnosisText = 'Electric dryer stopping mid-cycle suggests overheating or sensor control issues.';
+                } else if (washerType === 'gas_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10285998');
+                    diagnosisText = 'Gas dryer mid-cycle stops often indicate gas flow or ignition control problems.';
                 }
             }
             else if (symptom === 'no_drain_spin') {
@@ -1491,27 +1581,135 @@
                 } else if (washerType === 'top_load_he') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10525374');
                     diagnosisText = 'Error codes in HE top-load washers often relate to load sensing problems.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10804120');
+                    diagnosisText = 'Dryer error codes typically indicate temperature sensor or moisture control issues.';
+                } else if (washerType === 'gas_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10804127');
+                    diagnosisText = 'Gas dryer error codes often relate to ignition or gas flow control problems.';
                 }
             }
             else if (symptom === 'lights_flashing') {
                 if (washerType === 'front_load') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10393156');
                     diagnosisText = 'Flashing control lights typically indicate communication errors between control board and other components.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035278');
+                    diagnosisText = 'Flashing lights on electric dryer indicate control board communication or sensor issues.';
                 }
             }
 
-            // Fallback recommendations based on washer type
+            // Fallback recommendations based on appliance type
             if (!recommendedBoard) {
                 if (washerType === 'front_load') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10310240');
-                    diagnosisText = 'Based on symptoms, this is the most common control board for your washer type.';
+                    diagnosisText = 'Based on symptoms, this is the most common control board for your appliance type.';
                 } else if (washerType === 'top_load_he') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10084142');
                     diagnosisText = 'This control board addresses most common issues in HE top-load washers.';
-                } else {
+                } else if (washerType === 'top_load_traditional') {
                     recommendedBoard = controlBoards.find(b => b.partNumber === 'W10480317');
                     diagnosisText = 'Most suitable control board for traditional top-load washer symptoms.';
+                } else if (washerType === 'electric_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035278');
+                    diagnosisText = 'This is the most common control board for modern electric dryers.';
+                } else if (washerType === 'gas_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035289');
+                    diagnosisText = 'Most suitable control board for gas dryer symptoms and safety systems.';
+                } else if (washerType === 'combo_dryer') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11086759');
+                    diagnosisText = 'Recommended for compact and stackable dryer models.';
+                } else if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11396033');
+                    diagnosisText = 'Most common control board for built-in dishwasher issues.';
+                } else if (washerType === 'portable_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11086762');
+                    diagnosisText = 'Standard control board for portable dishwasher models.';
+                } else if (washerType === 'drawer_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11459389');
+                    diagnosisText = 'Specialized control board for drawer dishwasher mechanisms.';
+                } else if (washerType === 'french_door_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035893');
+                    diagnosisText = 'Most common control board for French door refrigerator issues.';
+                } else if (washerType === 'side_by_side_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035900');
+                    diagnosisText = 'Standard control board for side-by-side refrigerator models.';
+                } else if (washerType === 'top_freezer_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035907');
+                    diagnosisText = 'Basic control board for top freezer refrigerator operation.';
+                } else if (washerType === 'bottom_freezer_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035914');
+                    diagnosisText = 'Specialized control board for bottom freezer drawer mechanisms.';
+                } else if (washerType === 'compact_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11086769');
+                    diagnosisText = 'Compact control board for mini and under-counter refrigerators.';
                 }
+
+            // Enhanced refrigerator-specific diagnostics
+            if (symptom === 'no_power' && panelResponse === 'no_response') {
+                if (washerType === 'french_door_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035893');
+                    diagnosisText = 'French door refrigerator with no power typically indicates main control board failure.';
+                } else if (washerType === 'side_by_side_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035900');
+                    diagnosisText = 'Side-by-side refrigerator power issues often relate to main control board problems.';
+                } else if (washerType === 'top_freezer_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11035907');
+                    diagnosisText = 'Top freezer refrigerator with no power usually indicates electronic control failure.';
+                }
+            } else if (symptom === 'stops_mid_cycle') {
+                if (washerType === 'french_door_fridge' || washerType === 'side_by_side_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11228251');
+                    diagnosisText = 'Refrigerator cycling issues often indicate adaptive defrost control problems.';
+                }
+            } else if (symptom === 'error_codes') {
+                if (washerType === 'french_door_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11384505');
+                    diagnosisText = 'French door refrigerator error codes often relate to ice maker or water system control.';
+                } else if (washerType === 'side_by_side_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11384512');
+                    diagnosisText = 'Side-by-side refrigerator error codes typically indicate dispenser control issues.';
+                }
+            } else if (symptom === 'lights_flashing') {
+                if (washerType === 'french_door_fridge' || washerType === 'side_by_side_fridge') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11456649');
+                    diagnosisText = 'Flashing lights on smart refrigerators indicate connectivity or sensor control issues.';
+                }
+            }
+
+            // Enhanced dishwasher-specific diagnostics
+            if (symptom === 'no_power' && panelResponse === 'no_response') {
+                if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11396033');
+                    diagnosisText = 'Dishwasher with no power typically indicates main control board failure.';
+                } else if (washerType === 'portable_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11086762');
+                    diagnosisText = 'Portable dishwasher power issues often relate to connection control problems.';
+                }
+            } else if (symptom === 'no_start' && panelResponse === 'full_response') {
+                if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W10906421');
+                    diagnosisText = 'Dishwasher won\'t start often indicates door latch or safety interlock issues.';
+                }
+            } else if (symptom === 'stops_mid_cycle') {
+                if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11259787');
+                    diagnosisText = 'Mid-cycle stops in dishwashers often indicate drain pump or water control issues.';
+                }
+            } else if (symptom === 'no_drain_spin') {
+                if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11259787');
+                    diagnosisText = 'Dishwasher drainage problems typically indicate wash pump control board issues.';
+                }
+            } else if (symptom === 'error_codes') {
+                if (washerType === 'built_in_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11228237');
+                    diagnosisText = 'Dishwasher error codes often relate to sensor wash or water temperature control.';
+                } else if (washerType === 'drawer_dishwasher') {
+                    recommendedBoard = controlBoards.find(b => b.partNumber === 'W11459389');
+                    diagnosisText = 'Drawer dishwasher error codes typically indicate mechanism control problems.';
+                }
+            }
             }
 
             if (recommendedBoard) {
@@ -1549,6 +1747,7 @@
         function editBoard(index) {
             const board = controlBoards[index];
             document.getElementById('partNumber').value = board.partNumber;
+            document.getElementById('brand').value = board.brand;
             document.getElementById('compatibleModels').value = board.compatibleModels;
             document.getElementById('washerType').value = board.washerType;
             document.getElementById('symptoms').value = board.symptoms;
@@ -1572,16 +1771,19 @@
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const typeFilter = document.getElementById('typeFilter').value;
             const statusFilter = document.getElementById('statusFilter').value;
+            const brandFilter = document.getElementById('brandFilter').value;
 
             let filteredBoards = controlBoards.filter(board => {
                 const matchesSearch = board.partNumber.toLowerCase().includes(searchTerm) ||
                                     board.compatibleModels.toLowerCase().includes(searchTerm) ||
-                                    board.symptoms.toLowerCase().includes(searchTerm);
+                                    board.symptoms.toLowerCase().includes(searchTerm) ||
+                                    board.brand.toLowerCase().includes(searchTerm);
                 
                 const matchesType = !typeFilter || board.washerType === typeFilter;
                 const matchesStatus = !statusFilter || getStatus(board.stockQty) === statusFilter;
+                const matchesBrand = !brandFilter || board.brand === brandFilter;
 
-                return matchesSearch && matchesType && matchesStatus;
+                return matchesSearch && matchesType && matchesStatus && matchesBrand;
             });
 
             renderTable(filteredBoards);
@@ -1591,6 +1793,7 @@
         document.getElementById('searchInput').addEventListener('input', filterBoards);
         document.getElementById('typeFilter').addEventListener('change', filterBoards);
         document.getElementById('statusFilter').addEventListener('change', filterBoards);
+        document.getElementById('brandFilter').addEventListener('change', filterBoards);
 
         document.getElementById('boardForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1598,6 +1801,7 @@
             const formData = new FormData(this);
             const newBoard = {
                 partNumber: formData.get('partNumber'),
+                brand: formData.get('brand'),
                 compatibleModels: formData.get('compatibleModels'),
                 washerType: formData.get('washerType'),
                 symptoms: formData.get('symptoms'),
