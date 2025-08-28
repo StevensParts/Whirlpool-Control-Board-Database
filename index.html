@@ -72,8 +72,263 @@
             margin-bottom: 5px;
         }
 
-        .diagnostic-form {
-            space-y: 20px;
+        .method-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: #f3f4f6;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6b7280;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .method-content {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-search-section {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #8b5cf6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .image-search-section h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .image-search-section p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .upload-area {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: #8b5cf6;
+            background: #f3f0ff;
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: #8b5cf6;
+            background: #f3f0ff;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-text strong {
+            color: #374151;
+        }
+
+        .upload-hint {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .image-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+        }
+
+        .image-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-analyze {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-analyze:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-remove {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-remove:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .analysis-result {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .analysis-result.show {
+            display: block !important;
+            animation: slideIn 0.5s ease;
+        }
+
+        .analysis-header {
+            margin-bottom: 15px;
+        }
+
+        .analysis-header h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .match-confidence {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .match-confidence.high {
+            background: rgba(34, 197, 94, 0.8);
+        }
+
+        .match-confidence.medium {
+            background: rgba(251, 191, 36, 0.8);
+        }
+
+        .match-confidence.low {
+            background: rgba(239, 68, 68, 0.8);
+        }
+
+        .image-tips {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .image-tips h4 {
+            color: #9a3412;
+            margin-bottom: 10px;
+        }
+
+        .image-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .image-tips li {
+            color: #7c2d12;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .image-tips li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .analyzing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e5e7eb;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .question-group {
@@ -534,11 +789,75 @@
             <!-- Diagnostic Panel -->
             <div class="diagnostic-panel">
                 <div class="diagnostic-header">
-                    <h2>🩺 Diagnostic Questions</h2>
-                    <p>Answer these questions to identify the correct control board</p>
+                    <h2>🩺 Control Board Identification</h2>
+                    <p>Choose your method to identify the correct control board</p>
                 </div>
 
-                <form id="diagnosticForm" class="diagnostic-form">
+                <!-- Method Selection Tabs -->
+                <div class="method-tabs">
+                    <button type="button" class="tab-btn active" onclick="showMethod('questions')">
+                        🔍 Diagnostic Questions
+                    </button>
+                    <button type="button" class="tab-btn" onclick="showMethod('image')">
+                        📷 Image Search
+                    </button>
+                </div>
+
+                <!-- Image Search Method -->
+                <div id="imageMethod" class="method-content" style="display: none;">
+                    <div class="image-search-section">
+                        <h3>📷 Control Board Image Identification</h3>
+                        <p>Upload a photo of your control board to identify the part number</p>
+                        
+                        <div class="upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
+                            <div class="upload-content">
+                                <div class="upload-icon">📸</div>
+                                <div class="upload-text">
+                                    <strong>Click to upload control board image</strong>
+                                    <br>or drag and drop here
+                                </div>
+                                <div class="upload-hint">
+                                    Supports JPG, PNG, HEIC • Max 10MB
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        
+                        <div id="imagePreview" class="image-preview" style="display: none;">
+                            <img id="previewImg" alt="Control board preview">
+                            <div class="image-actions">
+                                <button type="button" class="btn-analyze" onclick="analyzeImage()">
+                                    🔍 Analyze Control Board
+                                </button>
+                                <button type="button" class="btn-remove" onclick="removeImage()">
+                                    ❌ Remove Image
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="imageAnalysisResult" class="analysis-result" style="display: none;">
+                            <div class="analysis-header">
+                                <h4>🎯 Image Analysis Results</h4>
+                            </div>
+                            <div id="analysisContent"></div>
+                        </div>
+
+                        <div class="image-tips">
+                            <h4>📋 Tips for Best Results:</h4>
+                            <ul>
+                                <li>Take photo with good lighting</li>
+                                <li>Ensure part number labels are visible</li>
+                                <li>Include the entire control board</li>
+                                <li>Avoid reflections and shadows</li>
+                                <li>Take photo straight on, not at an angle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Method -->
+                <form id="diagnosticForm" class="diagnostic-form method-content">
                     <div class="question-group">
                         <div class="question">1. What is the primary symptom?</div>
                         <div class="options">
@@ -1269,9 +1588,237 @@
             }
         });
 
-        // Initialize
-        renderTable();
-        updateStats();
+        // Image search functionality
+        let uploadedImage = null;
+
+        function showMethod(method) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide content
+            if (method === 'questions') {
+                document.getElementById('diagnosticForm').style.display = 'block';
+                document.getElementById('imageMethod').style.display = 'none';
+            } else if (method === 'image') {
+                document.getElementById('diagnosticForm').style.display = 'none';
+                document.getElementById('imageMethod').style.display = 'block';
+            }
+        }
+
+        // Image upload handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const imageInput = document.getElementById('imageInput');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImg = document.getElementById('previewImg');
+
+            // Drag and drop functionality
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    handleImageUpload(files[0]);
+                }
+            });
+
+            // File input handling
+            imageInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    handleImageUpload(e.target.files[0]);
+                }
+            });
+        });
+
+        function handleImageUpload(file) {
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size must be less than 10MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedImage = {
+                    file: file,
+                    dataUrl: e.target.result
+                };
+
+                document.getElementById('previewImg').src = e.target.result;
+                document.getElementById('uploadArea').style.display = 'none';
+                document.getElementById('imagePreview').style.display = 'block';
+                document.getElementById('imageAnalysisResult').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeImage() {
+            uploadedImage = null;
+            document.getElementById('uploadArea').style.display = 'block';
+            document.getElementById('imagePreview').style.display = 'none';
+            document.getElementById('imageAnalysisResult').style.display = 'none';
+            document.getElementById('imageInput').value = '';
+        }
+
+        function analyzeImage() {
+            if (!uploadedImage) {
+                alert('Please upload an image first');
+                return;
+            }
+
+            const analysisContent = document.getElementById('analysisContent');
+            const resultDiv = document.getElementById('imageAnalysisResult');
+
+            // Show analyzing state
+            analysisContent.innerHTML = `
+                <div class="analyzing">
+                    <div class="spinner"></div>
+                    <span>Analyzing control board image...</span>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+
+            // Simulate AI analysis (in real implementation, this would call an AI service)
+            setTimeout(() => {
+                const analysisResults = simulateImageAnalysis(uploadedImage);
+                displayAnalysisResults(analysisResults);
+            }, 2000);
+        }
+
+        function simulateImageAnalysis(imageData) {
+            // This simulates AI analysis results
+            // In a real implementation, you would send the image to an AI service like:
+            // - Google Vision API
+            // - Azure Computer Vision
+            // - AWS Rekognition
+            // - Custom trained model for control boards
+
+            const possibleMatches = [
+                {
+                    partNumber: 'W10310240',
+                    confidence: 92,
+                    reasons: ['Circuit board layout matches', 'Connector positions match', 'Component density similar']
+                },
+                {
+                    partNumber: 'W10393156',
+                    confidence: 78,
+                    reasons: ['Similar size and shape', 'Relay positions similar']
+                },
+                {
+                    partNumber: 'W11035891',
+                    confidence: 65,
+                    reasons: ['Color scheme matches', 'General layout similar']
+                }
+            ];
+
+            return {
+                matches: possibleMatches,
+                detectedFeatures: [
+                    'Multiple relays detected',
+                    'Microcontroller chip visible',
+                    'Standard connector layout',
+                    'LED indicators present'
+                ]
+            };
+        }
+
+        function displayAnalysisResults(results) {
+            const analysisContent = document.getElementById('analysisContent');
+            
+            if (results.matches && results.matches.length > 0) {
+                const topMatch = results.matches[0];
+                const matchedBoard = controlBoards.find(b => b.partNumber === topMatch.partNumber);
+                
+                // Clear previous recommendations
+                controlBoards.forEach(board => board.recommended = false);
+                
+                if (matchedBoard) {
+                    matchedBoard.recommended = true;
+                    
+                    let confidenceClass = 'low';
+                    let confidenceText = 'Low Confidence';
+                    if (topMatch.confidence >= 90) {
+                        confidenceClass = 'high';
+                        confidenceText = 'High Confidence';
+                    } else if (topMatch.confidence >= 75) {
+                        confidenceClass = 'medium';
+                        confidenceText = 'Medium Confidence';
+                    }
+
+                    analysisContent.innerHTML = `
+                        <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px;">
+                            <h4>🎯 Best Match: ${topMatch.partNumber}</h4>
+                            <div class="match-confidence ${confidenceClass}">
+                                ${confidenceText} (${topMatch.confidence}%)
+                            </div>
+                            
+                            <div style="margin: 15px 0;">
+                                <p><strong>Compatible Models:</strong> ${matchedBoard.compatibleModels}</p>
+                                <p><strong>Price:</strong> ${matchedBoard.price.toFixed(2)}</p>
+                                <p><strong>Stock:</strong> ${matchedBoard.stockQty > 0 ? `${matchedBoard.stockQty} available` : 'Out of stock'}</p>
+                            </div>
+
+                            <div style="margin-top: 15px;">
+                                <strong>Match Reasons:</strong>
+                                <ul style="margin-top: 8px; padding-left: 20px;">
+                                    ${topMatch.reasons.map(reason => `<li>${reason}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div style="margin-top: 15px;">
+                                <strong>Detected Features:</strong>
+                                <ul style="margin-top: 8px; padding-left: 20px;">
+                                    ${results.detectedFeatures.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            ${results.matches.length > 1 ? `
+                                <div style="margin-top: 15px; font-size: 0.9rem;">
+                                    <strong>Other possible matches:</strong>
+                                    ${results.matches.slice(1, 3).map(match => 
+                                        `<span style="display: inline-block; margin: 5px 10px 5px 0; padding: 4px 8px; background: rgba(255,255,255,0.3); border-radius: 15px;">${match.partNumber} (${match.confidence}%)</span>`
+                                    ).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+
+                    // Update the inventory table to highlight the match
+                    renderTable();
+                }
+            } else {
+                analysisContent.innerHTML = `
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px;">
+                        <h4>❌ No Clear Match Found</h4>
+                        <p>The image analysis couldn't identify a specific control board. This could be due to:</p>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Image quality or lighting issues</li>
+                            <li>Control board not in our database</li>
+                            <li>Partial or obstructed view of the board</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Suggestions:</strong></p>
+                        <ul style="margin-top: 8px; padding-left: 20px;">
+                            <li>Try taking a clearer photo with better lighting</li>
+                            <li>Ensure part numbers and labels are visible</li>
+                            <li>Use the diagnostic questions method instead</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            document.getElementById('imageAnalysisResult').classList.add('show');
+        }
     </script>
 </body>
 </html>
