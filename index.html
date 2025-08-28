@@ -793,7 +793,122 @@
             }
         }
 
-        @media (max-width: 768px) {
+        .known-issues-section {
+            margin-top: 30px;
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .known-issues-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .known-issues-header h3 {
+            color: #1e293b;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .known-issues-header p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .issues-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .issue-category {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .issue-category h4 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .issue-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .issue-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .issue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+
+        .issue-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Category-specific colors */
+        .issue-category:nth-child(1) .issue-btn {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+        }
+
+        .issue-category:nth-child(1) .issue-btn:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .issue-category:nth-child(2) .issue-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+        }
+
+        .issue-category:nth-child(2) .issue-btn:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .issue-category:nth-child(3) .issue-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+        }
+
+        .issue-category:nth-child(3) .issue-btn:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .issue-category:nth-child(4) .issue-btn {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+        }
+
+        .issue-category:nth-child(4) .issue-btn:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
             .stats-row {
                 flex-wrap: wrap;
             }
@@ -1137,6 +1252,72 @@
                         <tbody id="boardsTableBody">
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Known Issues Quick Reference -->
+                <div class="known-issues-section">
+                    <div class="known-issues-header">
+                        <h3>🔧 Common Issues Quick Reference</h3>
+                        <p>Click on an issue to filter boards that address this problem</p>
+                    </div>
+                    
+                    <div class="issues-categories">
+                        <div class="issue-category">
+                            <h4>🌊 Washer Issues</h4>
+                            <div class="issue-buttons">
+                                <button class="issue-btn" onclick="searchIssue('no power')">No Power</button>
+                                <button class="issue-btn" onclick="searchIssue('won\'t start')">Won't Start</button>
+                                <button class="issue-btn" onclick="searchIssue('won\'t drain')">Won't Drain</button>
+                                <button class="issue-btn" onclick="searchIssue('won\'t spin')">Won't Spin</button>
+                                <button class="issue-btn" onclick="searchIssue('door won\'t lock')">Door Won't Lock</button>
+                                <button class="issue-btn" onclick="searchIssue('error codes')">Error Codes</button>
+                                <button class="issue-btn" onclick="searchIssue('vibration')">Excessive Vibration</button>
+                                <button class="issue-btn" onclick="searchIssue('water level')">Water Level Issues</button>
+                            </div>
+                        </div>
+
+                        <div class="issue-category">
+                            <h4>🔥 Dryer Issues</h4>
+                            <div class="issue-buttons">
+                                <button class="issue-btn" onclick="searchIssue('no heat')">No Heat</button>
+                                <button class="issue-btn" onclick="searchIssue('won\'t start')">Won't Start</button>
+                                <button class="issue-btn" onclick="searchIssue('overheating')">Overheating</button>
+                                <button class="issue-btn" onclick="searchIssue('moisture sensor')">Sensor Dry Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('gas ignition')">Gas Ignition Problems</button>
+                                <button class="issue-btn" onclick="searchIssue('steam')">Steam Function Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('door latch')">Door Latch Problems</button>
+                                <button class="issue-btn" onclick="searchIssue('drum motor')">Drum Motor Issues</button>
+                            </div>
+                        </div>
+
+                        <div class="issue-category">
+                            <h4>🍽️ Dishwasher Issues</h4>
+                            <div class="issue-buttons">
+                                <button class="issue-btn" onclick="searchIssue('won\'t start')">Won't Start</button>
+                                <button class="issue-btn" onclick="searchIssue('won\'t drain')">Won't Drain</button>
+                                <button class="issue-btn" onclick="searchIssue('not cleaning')">Poor Cleaning</button>
+                                <button class="issue-btn" onclick="searchIssue('not heating')">Won't Heat Water</button>
+                                <button class="issue-btn" onclick="searchIssue('door latch')">Door Latch Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('dispenser')">Dispenser Problems</button>
+                                <button class="issue-btn" onclick="searchIssue('wash pump')">Wash Pump Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('third rack')">Third Rack Problems</button>
+                            </div>
+                        </div>
+
+                        <div class="issue-category">
+                            <h4>❄️ Refrigerator Issues</h4>
+                            <div class="issue-buttons">
+                                <button class="issue-btn" onclick="searchIssue('not cooling')">Not Cooling</button>
+                                <button class="issue-btn" onclick="searchIssue('ice maker')">Ice Maker Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('water dispenser')">Water Dispenser</button>
+                                <button class="issue-btn" onclick="searchIssue('defrost')">Defrost Problems</button>
+                                <button class="issue-btn" onclick="searchIssue('temperature')">Temperature Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('compressor')">Compressor Issues</button>
+                                <button class="issue-btn" onclick="searchIssue('door seal')">Door Seal Problems</button>
+                                <button class="issue-btn" onclick="searchIssue('smart features')">Smart Features</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
