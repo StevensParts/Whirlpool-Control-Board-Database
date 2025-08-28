@@ -206,11 +206,38 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-analyze:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-analyze:active {
+            transform: translateY(0);
+        }
+
+        .btn-analyze.analyzing {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            cursor: not-allowed;
+        }
+
+        .btn-analyze.analyzing::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .btn-remove {
@@ -1679,6 +1706,12 @@
 
             const analysisContent = document.getElementById('analysisContent');
             const resultDiv = document.getElementById('imageAnalysisResult');
+            const analyzeBtn = document.querySelector('.btn-analyze');
+
+            // Disable button and show analyzing state
+            analyzeBtn.textContent = '🔍 Analyzing...';
+            analyzeBtn.classList.add('analyzing');
+            analyzeBtn.disabled = true;
 
             // Show analyzing state
             analysisContent.innerHTML = `
@@ -1689,48 +1722,97 @@
             `;
             resultDiv.style.display = 'block';
 
-            // Simulate AI analysis (in real implementation, this would call an AI service)
+            // Much faster analysis (reduced from 2000ms to 800ms)
             setTimeout(() => {
                 const analysisResults = simulateImageAnalysis(uploadedImage);
                 displayAnalysisResults(analysisResults);
-            }, 2000);
+                
+                // Re-enable button
+                analyzeBtn.textContent = '🔍 Analyze Control Board';
+                analyzeBtn.classList.remove('analyzing');
+                analyzeBtn.disabled = false;
+            }, 800);
         }
 
         function simulateImageAnalysis(imageData) {
-            // This simulates AI analysis results
-            // In a real implementation, you would send the image to an AI service like:
-            // - Google Vision API
-            // - Azure Computer Vision
-            // - AWS Rekognition
-            // - Custom trained model for control boards
+            // Enhanced simulation with more realistic results based on common scenarios
+            // In a real implementation, you would send the image to an AI service
 
-            const possibleMatches = [
+            // Randomly select a realistic scenario for demo purposes
+            const scenarios = [
                 {
-                    partNumber: 'W10310240',
-                    confidence: 92,
-                    reasons: ['Circuit board layout matches', 'Connector positions match', 'Component density similar']
+                    // High confidence front-load match
+                    matches: [
+                        {
+                            partNumber: 'W10310240',
+                            confidence: 94,
+                            reasons: ['Circuit board layout matches perfectly', 'Connector positions match exactly', 'Component density identical', 'Part number visible in image']
+                        },
+                        {
+                            partNumber: 'W10393156',
+                            confidence: 72,
+                            reasons: ['Similar connector layout', 'Comparable board size']
+                        }
+                    ],
+                    detectedFeatures: [
+                        'Multiple relays detected (4 units)',
+                        'Main microcontroller chip identified',
+                        'Standard 14-pin connector visible',
+                        'LED status indicators present',
+                        'Front-load washer board pattern'
+                    ]
                 },
                 {
-                    partNumber: 'W10393156',
-                    confidence: 78,
-                    reasons: ['Similar size and shape', 'Relay positions similar']
+                    // Medium confidence HE match
+                    matches: [
+                        {
+                            partNumber: 'W10084142',
+                            confidence: 87,
+                            reasons: ['HE washer board configuration', 'Load sensing circuitry visible', 'Proper relay arrangement']
+                        },
+                        {
+                            partNumber: 'W11035747',
+                            confidence: 65,
+                            reasons: ['Similar board dimensions', 'Comparable component layout']
+                        }
+                    ],
+                    detectedFeatures: [
+                        'Load sensing components identified',
+                        'HE-specific circuit patterns',
+                        'Lid lock control circuitry',
+                        'Variable speed motor control'
+                    ]
                 },
                 {
-                    partNumber: 'W11035891',
-                    confidence: 65,
-                    reasons: ['Color scheme matches', 'General layout similar']
+                    // Traditional washer match
+                    matches: [
+                        {
+                            partNumber: 'W10480317',
+                            confidence: 91,
+                            reasons: ['Timer-based control layout', 'Traditional washer components', 'Mechanical timer interface']
+                        }
+                    ],
+                    detectedFeatures: [
+                        'Timer motor control detected',
+                        'Traditional switch interfaces',
+                        'Mechanical control inputs',
+                        'Basic relay configuration'
+                    ]
+                },
+                {
+                    // No clear match scenario
+                    matches: [],
+                    detectedFeatures: [
+                        'Control board detected',
+                        'Multiple components visible',
+                        'Cannot determine specific model'
+                    ]
                 }
             ];
 
-            return {
-                matches: possibleMatches,
-                detectedFeatures: [
-                    'Multiple relays detected',
-                    'Microcontroller chip visible',
-                    'Standard connector layout',
-                    'LED indicators present'
-                ]
-            };
+            // Select random scenario for demo (in production, this would be actual AI analysis)
+            const randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+            return randomScenario;
         }
 
         function displayAnalysisResults(results) {
