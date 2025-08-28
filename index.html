@@ -26,6 +26,201 @@
             box-sizing: border-box;
         }
 
+        function findSchematics() {
+            const brand = document.getElementById('schematicBrand').value;
+            const appliance = document.getElementById('schematicAppliance').value;
+            const resultsDiv = document.getElementById('schematicsResults');
+            const gridDiv = resultsDiv.querySelector('.schematics-grid');
+
+            if (!brand || !appliance) {
+                alert('Please select both brand and appliance type');
+                return;
+            }
+
+            // Sample schematic results based on selection
+            const schematics = [
+                {
+                    title: `${brand} ${appliance} Main Control Board Wiring`,
+                    description: `Complete wiring diagram for ${brand} ${appliance} control boards`,
+                    type: 'wiring',
+                    id: `${brand}-${appliance}-main-wiring`
+                },
+                {
+                    title: `${brand} ${appliance} Installation Guide`,
+                    description: `Step-by-step installation procedures`,
+                    type: 'installation',
+                    id: `${brand}-${appliance}-installation`
+                },
+                {
+                    title: `${brand} ${appliance} Troubleshooting Chart`,
+                    description: `Error codes and diagnostic flowchart`,
+                    type: 'troubleshooting',
+                    id: `${brand}-${appliance}-troubleshooting`
+                }
+            ];
+
+            gridDiv.innerHTML = schematics.map(schematic => `
+                <div class="schematic-item" onclick="showSchematic('${schematic.id}')">
+                    <div class="schematic-icon">
+                        ${schematic.type === 'wiring' ? '🔌' : schematic.type === 'installation' ? '🛠️' : '🔄'}
+                    </div>
+                    <div class="schematic-info">
+                        <h5>${schematic.title}</h5>
+                        <p>${schematic.description}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSchematic(schematicId) {
+            // Create modal if it doesn't exist
+            let modal = document.getElementById('schematicModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'schematicModal';
+                modal.className = 'schematic-modal';
+                modal.innerHTML = `
+                    <div class="schematic-modal-content">
+                        <div class="schematic-header">
+                            <h3 id="schematicTitle">Schematic Viewer</h3>
+                            <button class="schematic-close" onclick="closeSchematic()">×</button>
+                        </div>
+                        <div id="schematicBody">
+                            <!-- Content will be populated here -->
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+
+            // Sample schematic content based on ID
+            const schematicContent = getSchematicContent(schematicId);
+            
+            document.getElementById('schematicTitle').textContent = schematicContent.title;
+            document.getElementById('schematicBody').innerHTML = schematicContent.content;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeSchematic() {
+            const modal = document.getElementById('schematicModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function getSchematicContent(schematicId) {
+            const schematics = {
+                'control-board-basic': {
+                    title: 'Basic Control Board Connections',
+                    content: `
+                        <div class="schematic-diagram">
+                            <div class="diagram-placeholder">🔌</div>
+                            <h4>Standard Control Board Wiring</h4>
+                            <p>Main power, neutral, and control connections</p>
+                        </div>
+                        <div class="schematic-details">
+                            <h4>Wire Connections:</h4>
+                            <ul class="schematic-steps">
+                                <li><strong>L1 (Hot):</strong> Connect to main power supply (usually black wire)</li>
+                                <li><strong>N (Neutral):</strong> Connect to neutral supply (usually white wire)</li>
+                                <li><strong>Ground:</strong> Connect to chassis ground (green/yellow wire)</li>
+                                <li><strong>Door Lock:</strong> Connect door lock assembly wires</li>
+                                <li><strong>Motor:</strong> Connect drive motor control wires</li>
+                                <li><strong>Sensors:</strong> Connect temperature and water level sensors</li>
+                            </ul>
+                            <p><strong>⚠️ Safety:</strong> Always disconnect power before making any connections. Use proper wire nuts and electrical tape.</p>
+                        </div>
+                    `
+                },
+                'door-lock-wiring': {
+                    title: 'Door Lock Wiring Diagram',
+                    content: `
+                        <div class="schematic-diagram">
+                            <div class="diagram-placeholder">🚪</div>
+                            <h4>Door Lock Safety Circuit</h4>
+                            <p>Door lock, safety switch, and control board connections</p>
+                        </div>
+                        <div class="schematic-details">
+                            <h4>Door Lock Connections:</h4>
+                            <ul class="schematic-steps">
+                                <li><strong>Lock Coil:</strong> 12V supply from control board to lock mechanism</li>
+                                <li><strong>Switch Common:</strong> Door closed detection circuit</li>
+                                <li><strong>Switch NO:</strong> Normally open contact for door closed signal</li>
+                                <li><strong>Safety Interlock:</strong> Prevents operation when door is open</li>
+                                <li><strong>Manual Release:</strong> Emergency door release mechanism</li>
+                            </ul>
+                            <p><strong>⚠️ Note:</strong> Door lock must engage before wash cycle can start. Test with multimeter for continuity.</p>
+                        </div>
+                    `
+                },
+                'installation-steps': {
+                    title: 'Control Board Installation Guide',
+                    content: `
+                        <div class="schematic-diagram">
+                            <div class="diagram-placeholder">🛠️</div>
+                            <h4>Step-by-Step Installation</h4>
+                            <p>Professional control board replacement procedure</p>
+                        </div>
+                        <div class="schematic-details">
+                            <h4>Installation Steps:</h4>
+                            <ul class="schematic-steps">
+                                <li><strong>Power Off:</strong> Disconnect power and unplug appliance</li>
+                                <li><strong>Access Panel:</strong> Remove top or rear panel to access control board</li>
+                                <li><strong>Photo Documentation:</strong> Take pictures of all wire connections</li>
+                                <li><strong>Label Wires:</strong> Use masking tape to label each wire connection</li>
+                                <li><strong>Remove Old Board:</strong> Carefully disconnect all wires and mounting screws</li>
+                                <li><strong>Install New Board:</strong> Mount new board and reconnect all wires</li>
+                                <li><strong>Test Functions:</strong> Power on and test all cycles and functions</li>
+                                <li><strong>Calibration:</strong> Run any required calibration cycles</li>
+                            </ul>
+                            <p><strong>🔧 Tools Needed:</strong> Screwdrivers, wire strippers, multimeter, camera/phone</p>
+                        </div>
+                    `
+                },
+                'no-power-flowchart': {
+                    title: 'No Power Troubleshooting Flowchart',
+                    content: `
+                        <div class="schematic-diagram">
+                            <div class="diagram-placeholder">🔋</div>
+                            <h4>Power Issue Diagnosis</h4>
+                            <p>Systematic approach to no power problems</p>
+                        </div>
+                        <div class="schematic-details">
+                            <h4>Troubleshooting Steps:</h4>
+                            <ul class="schematic-steps">
+                                <li><strong>Check Power Source:</strong> Verify outlet has 120V with multimeter</li>
+                                <li><strong>Test Power Cord:</strong> Check continuity through power cord</li>
+                                <li><strong>Inspect Fuses:</strong> Check any inline fuses or circuit breakers</li>
+                                <li><strong>Door Lock Test:</strong> Ensure door lock is engaging properly</li>
+                                <li><strong>Control Board Input:</strong> Verify power reaching control board</li>
+                                <li><strong>Board Output:</strong> Test if control board is sending signals</li>
+                                <li><strong>Replace Board:</strong> If no output, replace control board</li>
+                            </ul>
+                            <p><strong>📊 Expected Readings:</strong> 120V AC at outlet, continuity through cord, 12V DC at door lock</p>
+                        </div>
+                    `
+                }
+            };
+
+            return schematics[schematicId] || {
+                title: 'Schematic Not Available',
+                content: `
+                    <div class="schematic-diagram">
+                        <div class="diagram-placeholder">📋</div>
+                        <h4>Schematic Coming Soon</h4>
+                        <p>This schematic is being developed and will be available in a future update.</p>
+                    </div>
+                    <div class="schematic-details">
+                        <p>For immediate assistance, please contact technical support or refer to the manufacturer's service manual.</p>
+                    </div>
+                `
+            };
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
@@ -793,7 +988,296 @@
             }
         }
 
-        .known-issues-section {
+        .schematics-section {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #8b5cf6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .schematics-section h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .schematics-section p {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .schematic-filters {
+            display: flex;
+            gap: 20px;
+            align-items: end;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 160px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .schematic-select {
+            padding: 10px 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .schematic-select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .find-schematics-btn {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            height: fit-content;
+        }
+
+        .find-schematics-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .schematics-results {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f3f0ff;
+            border-radius: 10px;
+            border: 1px solid #8b5cf6;
+        }
+
+        .schematics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .schematics-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .schematic-category {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .schematic-category h4 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .schematic-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .schematic-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .schematic-item:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+        }
+
+        .schematic-icon {
+            font-size: 1.8rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .schematic-info h5 {
+            color: #1e293b;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .schematic-info p {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .schematics-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fef3c7;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .schematics-note h4 {
+            color: #92400e;
+            margin-bottom: 12px;
+        }
+
+        .schematics-note p {
+            color: #78350f;
+            margin-bottom: 15px;
+        }
+
+        .resource-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .resource-item {
+            color: #78350f;
+            font-size: 0.9rem;
+            padding: 8px 0;
+        }
+
+        /* Schematic Viewer Modal */
+        .schematic-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1001;
+        }
+
+        .schematic-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 90%;
+            width: 800px;
+            overflow-y: auto;
+        }
+
+        .schematic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .schematic-close {
+            background: #ef4444;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .schematic-diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 2px dashed #cbd5e1;
+        }
+
+        .diagram-placeholder {
+            font-size: 3rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .schematic-details {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .schematic-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .schematic-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .schematic-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #3b82f6;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
             margin-top: 30px;
             background: #f8fafc;
             border-radius: 15px;
@@ -958,6 +1442,9 @@
                     <button type="button" class="tab-btn" onclick="showMethod('image')">
                         📷 Image Search
                     </button>
+                    <button type="button" class="tab-btn" onclick="showMethod('schematics')">
+                        📋 Wiring & Schematics
+                    </button>
                 </div>
 
                 <!-- Image Search Method -->
@@ -1023,10 +1510,174 @@
                     </div>
                 </div>
 
+                <!-- Schematics & Wiring Method -->
+                <div id="schematicsMethod" class="method-content" style="display: none;">
+                    <div class="schematics-section">
+                        <h3>📋 Wiring Diagrams & Installation Guides</h3>
+                        <p>Select your appliance type and brand to view relevant schematics and wiring diagrams</p>
+                        
+                        <div class="schematic-filters">
+                            <div class="filter-group">
+                                <label for="schematicBrand">Brand:</label>
+                                <select id="schematicBrand" class="schematic-select">
+                                    <option value="">Select Brand</option>
+                                    <option value="Whirlpool">Whirlpool</option>
+                                    <option value="GE">GE</option>
+                                    <option value="LG">LG</option>
+                                    <option value="Samsung">Samsung</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="schematicAppliance">Appliance Type:</label>
+                                <select id="schematicAppliance" class="schematic-select">
+                                    <option value="">Select Appliance</option>
+                                    <option value="washer">Washers</option>
+                                    <option value="dryer">Dryers</option>
+                                    <option value="dishwasher">Dishwashers</option>
+                                    <option value="refrigerator">Refrigerators</option>
+                                </select>
+                            </div>
+                            
+                            <button type="button" class="find-schematics-btn" onclick="findSchematics()">
+                                🔍 Find Schematics
+                            </button>
+                        </div>
+
+                        <div id="schematicsResults" class="schematics-results" style="display: none;">
+                            <div class="schematics-grid">
+                                <!-- Schematics will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="schematics-categories">
+                            <div class="schematic-category">
+                                <h4>🔌 Control Board Wiring Diagrams</h4>
+                                <div class="schematic-items">
+                                    <div class="schematic-item" onclick="showSchematic('control-board-basic')">
+                                        <div class="schematic-icon">📊</div>
+                                        <div class="schematic-info">
+                                            <h5>Basic Control Board Connections</h5>
+                                            <p>Standard wiring for main control boards</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('door-lock-wiring')">
+                                        <div class="schematic-icon">🚪</div>
+                                        <div class="schematic-info">
+                                            <h5>Door Lock Wiring</h5>
+                                            <p>Door lock and safety switch connections</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('motor-control')">
+                                        <div class="schematic-icon">⚙️</div>
+                                        <div class="schematic-info">
+                                            <h5>Motor Control Circuits</h5>
+                                            <p>Drive motor and pump motor wiring</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schematic-category">
+                                <h4>🛠️ Installation Guides</h4>
+                                <div class="schematic-items">
+                                    <div class="schematic-item" onclick="showSchematic('installation-steps')">
+                                        <div class="schematic-icon">📝</div>
+                                        <div class="schematic-info">
+                                            <h5>Control Board Installation</h5>
+                                            <p>Step-by-step replacement guide</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('safety-procedures')">
+                                        <div class="schematic-icon">⚠️</div>
+                                        <div class="schematic-info">
+                                            <h5>Safety Procedures</h5>
+                                            <p>Electrical safety and precautions</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('calibration')">
+                                        <div class="schematic-icon">🎯</div>
+                                        <div class="schematic-info">
+                                            <h5>Calibration & Testing</h5>
+                                            <p>Post-installation testing procedures</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schematic-category">
+                                <h4>🔄 Troubleshooting Flowcharts</h4>
+                                <div class="schematic-items">
+                                    <div class="schematic-item" onclick="showSchematic('no-power-flowchart')">
+                                        <div class="schematic-icon">🔋</div>
+                                        <div class="schematic-info">
+                                            <h5>No Power Troubleshooting</h5>
+                                            <p>Step-by-step power issue diagnosis</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('error-codes-flowchart')">
+                                        <div class="schematic-icon">🚨</div>
+                                        <div class="schematic-info">
+                                            <h5>Error Code Reference</h5>
+                                            <p>Complete error code troubleshooting</p>
+                                        </div>
+                                    </div>
+                                    <div class="schematic-item" onclick="showSchematic('sensor-testing')">
+                                        <div class="schematic-icon">📡</div>
+                                        <div class="schematic-info">
+                                            <h5>Sensor Testing Procedures</h5>
+                                            <p>Temperature, water level, and door sensors</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schematics-note">
+                            <h4>📚 Professional Resources</h4>
+                            <p><strong>Note:</strong> These schematics are for qualified technicians only. Always follow manufacturer safety guidelines and local electrical codes. Disconnect power before servicing any appliance.</p>
+                            
+                            <div class="resource-links">
+                                <div class="resource-item">
+                                    <strong>🔧 Tools Required:</strong> Multimeter, Wire strippers, Electrical tape, Insulated screwdrivers
+                                </div>
+                                <div class="resource-item">
+                                    <strong>⚡ Safety First:</strong> Always disconnect power, use lockout/tagout procedures, test circuits before working
+                                </div>
+                                <div class="resource-item">
+                                    <strong>📖 Documentation:</strong> Keep service records, part numbers, and date codes for warranty purposes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Questions Method -->
                 <form id="diagnosticForm" class="diagnostic-form method-content">
                     <div class="question-group">
-                        <div class="question">1. What is the primary symptom?</div>
+                        <div class="question">1. What brand is your appliance?</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="brand1" name="appliance_brand" value="Whirlpool">
+                                <label for="brand1">Whirlpool</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="brand2" name="appliance_brand" value="GE">
+                                <label for="brand2">GE (General Electric)</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="brand3" name="appliance_brand" value="LG">
+                                <label for="brand3">LG</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="brand4" name="appliance_brand" value="Samsung">
+                                <label for="brand4">Samsung</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-group">
+                        <div class="question">2. What is the primary symptom?</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="symptom1" name="symptom" value="no_power">
@@ -1056,7 +1707,7 @@
                     </div>
 
                     <div class="question-group">
-                        <div class="question">2. Does the control panel respond to button presses?</div>
+                        <div class="question">3. Does the control panel respond to button presses?</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="panel1" name="panel_response" value="no_response">
@@ -1074,7 +1725,7 @@
                     </div>
 
                     <div class="question-group">
-                        <div class="question">3. Are there any display issues?</div>
+                        <div class="question">4. Are there any display issues?</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="display1" name="display_issue" value="blank_display">
@@ -1096,7 +1747,7 @@
                     </div>
 
                     <div class="question-group">
-                        <div class="question">4. Does the washer fill with water?</div>
+                        <div class="question">5. Does the appliance fill with water? (For washers/dishwashers)</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="water1" name="water_fill" value="no_fill">
@@ -1114,7 +1765,7 @@
                     </div>
 
                     <div class="question-group">
-                        <div class="question">5. What type of appliance do you have?</div>
+                        <div class="question">6. What type of appliance do you have?</div>
                         <div class="options">
                             <div class="option">
                                 <input type="radio" id="type1" name="washer_type" value="front_load">
@@ -1950,6 +2601,7 @@
 
         function filterBoards() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const applianceFilter = document.getElementById('applianceFilter').value;
             const typeFilter = document.getElementById('typeFilter').value;
             const statusFilter = document.getElementById('statusFilter').value;
             const brandFilter = document.getElementById('brandFilter').value;
@@ -1960,18 +2612,53 @@
                                     board.symptoms.toLowerCase().includes(searchTerm) ||
                                     board.brand.toLowerCase().includes(searchTerm);
                 
+                // Appliance category filter
+                let matchesAppliance = true;
+                if (applianceFilter) {
+                    if (applianceFilter === 'washer') {
+                        matchesAppliance = ['front_load', 'top_load_he', 'top_load_traditional'].includes(board.washerType);
+                    } else if (applianceFilter === 'dryer') {
+                        matchesAppliance = ['electric_dryer', 'gas_dryer', 'combo_dryer'].includes(board.washerType);
+                    } else if (applianceFilter === 'dishwasher') {
+                        matchesAppliance = ['built_in_dishwasher', 'portable_dishwasher', 'drawer_dishwasher'].includes(board.washerType);
+                    } else if (applianceFilter === 'refrigerator') {
+                        matchesAppliance = ['side_by_side_fridge', 'french_door_fridge', 'top_freezer_fridge', 'bottom_freezer_fridge', 'compact_fridge'].includes(board.washerType);
+                    }
+                }
+
                 const matchesType = !typeFilter || board.washerType === typeFilter;
                 const matchesStatus = !statusFilter || getStatus(board.stockQty) === statusFilter;
                 const matchesBrand = !brandFilter || board.brand === brandFilter;
 
-                return matchesSearch && matchesType && matchesStatus && matchesBrand;
+                return matchesSearch && matchesAppliance && matchesType && matchesStatus && matchesBrand;
             });
 
             renderTable(filteredBoards);
         }
 
+        function searchIssue(issue) {
+            // Clear all filters first
+            document.getElementById('applianceFilter').value = '';
+            document.getElementById('typeFilter').value = '';
+            document.getElementById('brandFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            
+            // Set the search term to the issue
+            document.getElementById('searchInput').value = issue;
+            
+            // Filter the results
+            filterBoards();
+            
+            // Scroll to the results table
+            document.getElementById('boardsTable').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
         // Event listeners
         document.getElementById('searchInput').addEventListener('input', filterBoards);
+        document.getElementById('applianceFilter').addEventListener('change', filterBoards);
         document.getElementById('typeFilter').addEventListener('change', filterBoards);
         document.getElementById('statusFilter').addEventListener('change', filterBoards);
         document.getElementById('brandFilter').addEventListener('change', filterBoards);
@@ -2022,9 +2709,15 @@
             if (method === 'questions') {
                 document.getElementById('diagnosticForm').style.display = 'block';
                 document.getElementById('imageMethod').style.display = 'none';
+                document.getElementById('schematicsMethod').style.display = 'none';
             } else if (method === 'image') {
                 document.getElementById('diagnosticForm').style.display = 'none';
                 document.getElementById('imageMethod').style.display = 'block';
+                document.getElementById('schematicsMethod').style.display = 'none';
+            } else if (method === 'schematics') {
+                document.getElementById('diagnosticForm').style.display = 'none';
+                document.getElementById('imageMethod').style.display = 'none';
+                document.getElementById('schematicsMethod').style.display = 'block';
             }
         }
 
